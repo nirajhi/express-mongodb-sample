@@ -4,7 +4,8 @@
   "description": "mongodb express sample",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "mongoose": "^5.1.7"
   },
   "devDependencies": {
-    "eslint": "^5.0.1"
+    "eslint": "^5.0.1",
+    "nodemon": "^1.17.5"
   }
 }
