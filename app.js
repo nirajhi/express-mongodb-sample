@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 
 const product = require('./routes/product.route'); // Imports routes for the products
 
+const test = require('./routes/test.route'); // Imports routes for the products
+
 
 // initialize our express app
 const app = express();
@@ -25,6 +27,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/products', product);
+app.use('/',test);
 
 
 
