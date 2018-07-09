@@ -1,10 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('express-session')
 
-// const student = require('./routes/student.route'); // Imports routes for the student
 
-const user = require('./routes/user.route'); // Imports routes for the products
+
+
+const product = require('./routes/product.route'); // Imports routes for the products
+
+const test = require('./routes/test.route'); // Imports routes for the products
+
 
 // initialize our express app
 const app = express();
@@ -13,8 +16,7 @@ const app = express();
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
-// let dev_db_url = 'mongodb://nirajhirachan:mlab147@ds018538.mlab.com:18538/school';
-let dev_db_url = 'mongodb://localhost:27017/school';
+let dev_db_url = 'mongodb://nirajhirachan:mlab147@ds018538.mlab.com:18538/products';
 let mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
@@ -24,15 +26,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-//app.use('/student', student);
-//use sessions for tracking logins
-app.use(session({
-    secret: 'work hard',
-    resave: true,
-    saveUninitialized: false
-  }));
+app.use('/products', product);
+app.use('/',test);
 
-app.use('/user', user);
+
+
 
 
 
